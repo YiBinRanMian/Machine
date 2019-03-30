@@ -33,6 +33,8 @@ def diffComp(path,ratio):
             st2 = stripNotes(filelist[j],path)
             diffRatio = difflib.SequenceMatcher(None,st1,st2).quick_ratio()
             if diffRatio >=ratio:
-                if filelist[i] not in clist: clist.append(filelist[i])
-                if filelist[j] not in clist: clist.append(filelist[j])
+                if filelist[i] not in clist:
+                    clist.append(filelist[i])
+                if filelist[j] not in clist:
+                    clist.append(filelist[j])
     return clist

@@ -74,7 +74,39 @@ def getCloneFile(path,minT,strI,simI,disT):
                                 clist.append(fn.group(1))
     return clist
 
-def scoring(path,mode,clist,clist2,is_sort=True):
+def getClonePairs(path,minT,strI,simI,disT,fname):
+    cluster_path = path + '/clusters'
+    cl = re.compile('.*FILE (.*) (LINE:.*)\sNODE_KIND.*')
+    sl = re.compile('.*'+path+'/(.*)\.txt.*')
+    num = 0
+    clonedict = {}
+    clonedict1 = {}
+    for i in range(len(minT)):
+        for j in range(len(strI)):
+            for k in range(len(simI)):
+                filename = cluster_path + '/post_cluster_vdb_'+str(minT[i])+'_'+str(strI[j])+'_allg_'+str(simI[k])+'_50'
+                source = open(filename,'r').readlines()
+                clonelist = []
+                for line in source:
+                    if line != '\n':
+                        st1 = sl.match(cl.match(line).group(1)).group(1) +'.py '+ cl.match(line).group(2)
+                        clonelist.append(st1)
+                    else:
+                        clonedict[num] = clonelist.copy()
+                        num += 1
+                        clonelist.clear()
+    num1 = 0
+    for i in range(num-1):
+        for j in clonedict[i]:
+            if j.split()[0] == fname:
+                clonedict1[num1] = clonedict[i].copy()
+                num1+=1
+                break
+
+    return clonedict1
+
+
+def scoring(path,mode,clist,clist2,minTokens,stride,similarity,distance,is_sort=True):
     scorename = path+'/grading/scores'
     scorefile = open(scorename,'w')
     inlist = readinput(path+'/grading/input')
@@ -128,7 +160,17 @@ def scoring(path,mode,clist,clist2,is_sort=True):
             res = res *0.6 + noneClone * 0.2 + valout *0.2
             pg_score += ' = '+str(float('%.2f'%res)) + '\n\n'
             scorefile.write(filename+" "+str(float('%.2f'%res))+"\n")
-            outputstr = pg_input + pg_output + pg_score + genOutStr(path,filename)
+            clone_report = getClonePairs(path,minTokens,stride,similarity,distance,filename)
+            clone_str = '----------------------------------------\nClone report of '+filename+':\n\n'
+            if clone_report == {}:
+                clone_str+= 'None\n'
+            else:
+                for cindex in range(len(clone_report)):
+                    for fstr in clone_report[cindex]:
+                        clone_str+=fstr+'\n'
+                    clone_str+='\n'
+
+            outputstr = pg_input + pg_output + pg_score + clone_str + genOutStr(path,filename)
             outputfile.write(outputstr)
 
 def renamefiles(path):
@@ -154,6 +196,9 @@ def removeTempFiles(path):
         if os.path.splitext(file)[1] == '.txt':
             os.remove(os.path.join(path + file))
 
+
+
+
 if __name__ == "__main__":
     configer = configReader()
     mode = configer.mode
@@ -163,11 +208,10 @@ if __name__ == "__main__":
     distance = configer.distance
     is_sort = configer.is_sort
     path = configer.path
-
     renamefiles(path)
     pyAst(path)
     genclone(path,minTokens,stride,similarity,distance)
     clist = getCloneFile(path,minTokens,stride,similarity,distance)
     clist2 = diffComp(path,0.83)
-    scoring(path,mode,clist,clist2,is_sort)
+    scoring(path,mode,clist,clist2,minTokens,stride,similarity,distance,is_sort)
     removeTempFiles(path + '/')
