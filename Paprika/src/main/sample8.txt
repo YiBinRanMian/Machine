@@ -1,0 +1,171 @@
+0 Module
+1 body
+2 Import_stmt
+3 T Import 1
+3 names
+4 alias
+5 'ast'
+2 Import_stmt
+3 T Import 2
+3 names
+4 alias
+5 'builtins'
+2 FunctionDef_stmt
+3 T FunctionDef 5 'get_local_vars'
+3 args
+4 arguments
+5 args
+6 T arg 5 'source'
+6 T arg 5 'namespace'
+3 body
+4 Assign_stmt
+5 T Assign 9
+5 targets
+6 T Name 9 'local_vars_names'
+5 value
+6 Call_stmt
+7 T Call 9
+7 func
+8 T Name 9 'set'
+7 args
+8 Call_stmt
+9 T Call 9
+9 func
+10 Attribute
+11 value
+12 T Name 9 'namespace'
+12 T Name 9 'keys'
+4 Assign_stmt
+5 T Assign 11
+5 targets
+6 T Name 11 'root'
+5 value
+6 Call_stmt
+7 T Call 11
+7 func
+8 Attribute
+9 value
+10 T Name 11 'ast'
+10 T Name 11 'parse'
+7 args
+8 T Name 11 'source'
+4 Assign_stmt
+5 T Assign 13
+5 targets
+6 T Name 13 'required_vars_names'
+5 value
+6 Call_stmt
+7 T Call 13
+7 func
+8 T Name 13 'set'
+4 For_stmt
+5 T For 14
+5 target
+6 T Name 14 'node'
+5 iter
+6 Call_stmt
+7 T Call 14
+7 func
+8 Attribute
+9 value
+10 T Name 14 'ast'
+10 T Name 14 'walk'
+7 args
+8 T Name 14 'root'
+5 body
+6 If_stmt
+7 T If 15
+7 test
+8 Call_stmt
+9 T Call 15
+9 func
+10 T Name 15 'isinstance'
+9 args
+10 T Name 15 'node'
+10 Attribute
+11 value
+12 T Name 15 'ast'
+12 T Name 15 'Name'
+7 body
+8 Expr
+9 value
+10 Call_stmt
+11 T Call 16
+11 func
+12 Attribute
+13 value
+14 T Name 16 'required_vars_names'
+14 T Name 16 'add'
+11 args
+12 Attribute
+13 value
+14 T Name 16 'node' 'id'
+4 Assign_stmt
+5 T Assign 18
+5 targets
+6 T Name 18 'builtin_vars_names'
+5 value
+6 Call_stmt
+7 T Call 18
+7 func
+8 T Name 18 'set'
+7 args
+8 Call_stmt
+9 T Call 18
+9 func
+10 Attribute
+11 value
+12 Call_stmt
+13 T Call 18
+13 func
+14 T Name 18 'vars'
+13 args
+14 T Name 18 'builtins'
+14 T Name 18 'keys'
+4 Assign_stmt
+5 T Assign 20
+5 targets
+6 T Name 20 'required_local_vars'
+5 value
+6 BinOp
+7 left
+8 T Name 20 'required_vars_names'
+7 op
+8 BitAnd
+7 right
+8 T Name 20 'local_vars_names'
+4 Assign_stmt
+5 T Assign 24
+5 targets
+6 T Name 24 'params'
+5 value
+6 T Dict 24
+4 For_stmt
+5 T For 25
+5 target
+6 T Name 25 'v'
+5 iter
+6 T Name 25 'required_local_vars'
+5 body
+6 Assign_stmt
+7 T Assign 26
+7 targets
+8 Subscript
+9 value
+10 T Name 26 'params'
+9 slice
+10 Index
+11 value
+12 T Name 26 'v'
+7 value
+8 Subscript
+9 value
+10 T Name 26 'namespace'
+9 slice
+10 Index
+11 value
+12 T Name 26 'v'
+4 Return_stmt
+5 T Return 28
+5 value
+6 T Name 28 'params'

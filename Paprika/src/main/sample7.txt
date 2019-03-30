@@ -1,0 +1,232 @@
+0 Module
+1 body
+2 Import_stmt
+3 T Import 1
+3 names
+4 alias
+5 'ast'
+2 Import_stmt
+3 T Import 2
+3 names
+4 alias
+5 'astunparse'
+2 Import_stmt
+3 T Import 3
+3 names
+4 alias
+5 'astmonkey'
+2 Import_stmt
+3 T Import 4
+3 names
+4 alias
+5 're'
+2 FunctionDef_stmt
+3 T FunctionDef 6 'getWords'
+3 args
+4 arguments
+5 args
+6 T arg 6 'l'
+3 body
+4 Assign_stmt
+5 T Assign 7
+5 targets
+6 T Name 7 'wordList'
+5 value
+6 Call_stmt
+7 T Call 7
+7 func
+8 Attribute
+9 value
+10 Call_stmt
+11 T Call 7
+11 func
+12 Attribute
+13 value
+14 T Name 7 're'
+14 T Name 7 'sub'
+11 args
+12 T Str 7 '[^\\w]'
+12 T Str 7 ' '
+12 T Name 7 'l'
+12 T Name 7 'split'
+4 Return_stmt
+5 T Return 8
+5 value
+6 T Name 8 'wordList'
+2 FunctionDef_stmt
+3 T FunctionDef 9 'parseLine'
+3 args
+4 arguments
+5 args
+6 T arg 9 'l'
+3 body
+4 Expr
+5 value
+6 Call_stmt
+7 T Call 10
+7 func
+8 T Name 10 'print'
+7 args
+8 Call_stmt
+9 T Call 10
+9 func
+10 T Name 10 'getWords'
+9 args
+10 T Name 10 'l'
+2 T ClassDef 12 'v'
+3 bases
+4 Attribute
+5 value
+6 T Name 12 'ast'
+6 T Name 12 'NodeVisitor'
+3 body
+4 FunctionDef_stmt
+5 T FunctionDef 13 'generic_visit'
+5 args
+6 arguments
+7 args
+8 T arg 13 'self'
+8 T arg 13 'node'
+5 body
+6 If_stmt
+7 T If 14
+7 test
+8 Call_stmt
+9 T Call 14
+9 func
+10 T Name 14 'isinstance'
+9 args
+10 T Name 14 'node'
+10 T Name 14 'list'
+7 body
+8 Expr
+9 value
+10 Call_stmt
+11 T Call 15
+11 func
+12 T Name 15 'print'
+11 args
+12 T ListComp 15
+13 elt
+14 T Tuple 15
+14 elts
+15 T Str 15
+15 T Name 15 'child'
+13 generators
+14 comprehension
+15 target
+16 T Name 15 'child'
+15 iter
+16 T Name 15 'node'
+6 Expr
+7 value
+8 Call_stmt
+9 T Call 16
+9 func
+10 Attribute
+11 value
+12 Attribute
+13 value
+14 T Name 16 'ast'
+14 T Name 16 'NodeVisitor'
+14 T Name 16 'generic_visit'
+9 args
+10 T Name 16 'self'
+10 T Name 16 'node'
+2 Assign_stmt
+3 T Assign 20
+3 targets
+4 T Name 20 'file'
+3 value
+4 Call_stmt
+5 T Call 20
+5 func
+6 T Name 20 'open'
+5 args
+6 T Str 20 'q14.py'
+6 T Str 20 'r'
+2 Assign_stmt
+3 T Assign 21
+3 targets
+4 T Name 21 'source'
+3 value
+4 Call_stmt
+5 T Call 21
+5 func
+6 Attribute
+7 value
+8 T Name 21 'file'
+8 T Name 21 'read'
+2 Assign_stmt
+3 T Assign 22
+3 targets
+4 T Name 22 'root'
+3 value
+4 Call_stmt
+5 T Call 22
+5 func
+6 Attribute
+7 value
+8 T Name 22 'ast'
+8 T Name 22 'parse'
+5 args
+6 T Name 22 'source'
+2 Assign_stmt
+3 T Assign 23
+3 targets
+4 T Name 23 'children'
+3 value
+4 T ListComp 23
+4 elt
+5 T Tuple 23
+5 elts
+6 T Name 23 'name'
+6 T Name 23 'value'
+4 generators
+5 comprehension
+6 target
+7 T Tuple 23
+7 elts
+8 T Name 23 'name'
+8 T Name 23 'value'
+6 iter
+7 Call_stmt
+8 T Call 23
+8 func
+9 Attribute
+10 value
+11 T Name 23 'ast'
+11 T Name 23 'iter_fields'
+8 args
+9 T Name 23 'root'
+2 For_stmt
+3 T For 24
+3 target
+4 T Tuple 24
+4 elts
+5 T Name 24 'i'
+5 T Name 24 'child'
+3 iter
+4 Call_stmt
+5 T Call 24
+5 func
+6 T Name 24 'enumerate'
+5 args
+6 T Name 24 'children'
+3 body
+4 Expr
+5 value
+6 Call_stmt
+7 T Call 25
+7 func
+8 T Name 25 'print'
+7 args
+8 T Name 25 'child'
+2 Expr
+3 value
+4 Call_stmt
+5 T Call 26
+5 func
+6 T Name 26 'print'
+5 args
+6 T Name 26 'children'

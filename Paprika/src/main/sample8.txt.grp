@@ -1,0 +1,202 @@
+# sample8.txt
+n 1 Module [min,max]=[1,16] TC=0
+e 1 2
+n 2 body [min,max]=[1,16] TC=-373251632
+e 2 3
+n 3 Import_stmt [min,max]=[1,1] TC=0
+e 3 4
+n 4 Import [min,max]=[1,1] TC=0
+e 3 5
+n 5 names [min,max]=[2147483647,-1] TC=6
+e 5 6
+n 6 alias [min,max]=[2147483647,-1] TC=-373265520
+e 6 7
+n 7 AnnAssign_stmt [min,max]=[2147483647,-1] TC=131
+e 2 8
+n 8 Import_stmt [min,max]=[2,2] TC=3420420
+e 8 9
+n 9 Import [min,max]=[2,2] TC=-373250592
+e 8 10
+n 10 names [min,max]=[2147483647,-1] TC=-373250432
+e 10 11
+n 11 alias [min,max]=[2147483647,-1] TC=14
+e 11 12
+n 12 AnnAssign_stmt [min,max]=[2147483647,-1] TC=0
+e 2 13
+n 13 FunctionDef_stmt [min,max]=[5,16] TC=0
+e 13 14
+n 14 IDENTIFIER [min,max]=[5,5] TC=10
+e 13 15
+n 15 args [min,max]=[5,5] TC=-373249408
+e 15 16
+n 16 arguments [min,max]=[5,5] TC=-373249344
+e 16 17
+n 17 args [min,max]=[5,5] TC=-373249120
+e 17 18
+n 18 IDENTIFIER [min,max]=[5,5] TC=86
+e 17 19
+n 19 IDENTIFIER [min,max]=[5,5] TC=3
+e 13 20
+n 20 body [min,max]=[9,16] TC=-373248496
+e 20 21
+n 21 Assign_stmt [min,max]=[9,9] TC=3485956
+e 21 22
+n 22 Assign [min,max]=[9,9] TC=0
+e 21 23
+n 23 targets [min,max]=[9,9] TC=-373252336
+e 23 24
+n 24 IDENTIFIER [min,max]=[9,9] TC=0
+e 21 25
+n 25 value [min,max]=[9,9] TC=513542965
+e 25 26
+n 26 Call_stmt [min,max]=[9,9] TC=0
+e 26 27
+n 27 Call [min,max]=[9,9] TC=0
+e 26 28
+n 28 func [min,max]=[9,9] TC=-373246864
+e 28 29
+n 29 IDENTIFIER [min,max]=[9,9] TC=100
+e 26 30
+n 30 args [min,max]=[9,9] TC=-373246384
+e 30 31
+n 31 Call_stmt [min,max]=[9,9] TC=21506
+e 31 32
+n 32 Call [min,max]=[9,9] TC=6
+e 31 33
+n 33 func [min,max]=[9,9] TC=-373292948
+e 33 34
+n 34 Attribute [min,max]=[9,9] TC=-373245728
+e 34 35
+n 35 value [min,max]=[9,9] TC=0
+e 35 36
+n 36 IDENTIFIER [min,max]=[9,9] TC=116
+e 35 37
+n 37 IDENTIFIER [min,max]=[9,9] TC=-373245024
+e 20 38
+n 38 Assign_stmt [min,max]=[11,11] TC=-373245568
+e 38 39
+n 39 Assign [min,max]=[11,11] TC=121
+e 38 40
+n 40 targets [min,max]=[11,11] TC=124
+e 40 41
+n 41 IDENTIFIER [min,max]=[11,11] TC=118
+e 38 42
+n 42 value [min,max]=[11,11] TC=126
+e 42 43
+n 43 Call_stmt [min,max]=[11,11] TC=1818190949
+e 43 44
+n 44 Call [min,max]=[11,11] TC=6
+e 43 45
+n 45 func [min,max]=[11,11] TC=513541802
+e 45 46
+n 46 Attribute [min,max]=[11,11] TC=143
+e 46 47
+n 47 value [min,max]=[11,11] TC=3
+e 47 48
+n 48 IDENTIFIER [min,max]=[11,11] TC=-373251152
+e 47 49
+n 49 IDENTIFIER [min,max]=[11,11] TC=-373265456
+e 43 50
+n 50 args [min,max]=[11,11] TC=-373265312
+e 50 51
+n 51 IDENTIFIER [min,max]=[11,11] TC=-373265280
+e 20 52
+n 52 Assign_stmt [min,max]=[13,13] TC=-373266000
+e 52 53
+n 53 Assign [min,max]=[13,13] TC=0
+e 52 54
+n 54 targets [min,max]=[13,13] TC=-373264864
+e 54 55
+n 55 IDENTIFIER [min,max]=[13,13] TC=0
+e 52 56
+n 56 value [min,max]=[13,13] TC=-373263952
+e 56 57
+n 57 Call_stmt [min,max]=[13,13] TC=0
+e 57 58
+n 58 Call [min,max]=[13,13] TC=-373263280
+e 57 59
+n 59 func [min,max]=[13,13] TC=694
+e 59 60
+n 60 IDENTIFIER [min,max]=[13,13] TC=0
+e 20 61
+n 61 For_stmt [min,max]=[14,16] TC=3682564
+e 61 62
+n 62 For [min,max]=[14,14] TC=0
+e 61 63
+n 63 target [min,max]=[14,14] TC=642
+e 63 64
+n 64 IDENTIFIER [min,max]=[14,14] TC=0
+e 61 65
+n 65 iter [min,max]=[14,14] TC=616
+e 65 66
+n 66 Call_stmt [min,max]=[14,14] TC=0
+e 66 67
+n 67 Call [min,max]=[14,14] TC=68
+e 66 68
+n 68 func [min,max]=[14,14] TC=83
+e 68 69
+n 69 Attribute [min,max]=[14,14] TC=0
+e 69 70
+n 70 value [min,max]=[14,14] TC=0
+e 70 71
+n 71 IDENTIFIER [min,max]=[14,14] TC=-373292977
+e 70 72
+n 72 IDENTIFIER [min,max]=[14,14] TC=19
+e 66 73
+n 73 args [min,max]=[14,14] TC=28
+e 73 74
+n 74 IDENTIFIER [min,max]=[14,14] TC=-373260272
+e 61 75
+n 75 body [min,max]=[15,16] TC=25
+e 75 76
+n 76 If_stmt [min,max]=[15,16] TC=-373293041
+e 76 77
+n 77 If [min,max]=[15,15] TC=-373259536
+e 76 78
+n 78 test [min,max]=[15,15] TC=0
+e 78 79
+n 79 Call_stmt [min,max]=[15,15] TC=8
+e 79 80
+n 80 Call [min,max]=[15,15] TC=8
+e 79 81
+n 81 func [min,max]=[15,15] TC=-373293028
+e 81 82
+n 82 IDENTIFIER [min,max]=[15,15] TC=11
+e 79 83
+n 83 args [min,max]=[15,15] TC=2
+e 83 84
+n 84 IDENTIFIER [min,max]=[15,15] TC=-373257840
+e 83 85
+n 85 Attribute [min,max]=[15,15] TC=0
+e 85 86
+n 86 value [min,max]=[15,15] TC=1953775890
+e 86 87
+n 87 IDENTIFIER [min,max]=[15,15] TC=1717912686
+e 86 88
+n 88 IDENTIFIER [min,max]=[15,15] TC=0
+e 76 89
+n 89 body [min,max]=[16,16] TC=22
+e 89 90
+n 90 Expr [min,max]=[16,16] TC=0
+e 90 91
+n 91 value [min,max]=[16,16] TC=13570
+e 91 92
+n 92 Call_stmt [min,max]=[16,16] TC=-373257584
+e 92 93
+n 93 Call [min,max]=[16,16] TC=-373256576
+e 92 94
+n 94 func [min,max]=[16,16] TC=26
+e 94 95
+n 95 Attribute [min,max]=[16,16] TC=0
+e 95 96
+n 96 value [min,max]=[16,16] TC=-373255760
+e 96 97
+n 97 IDENTIFIER [min,max]=[16,16] TC=-373254592
+e 96 98
+n 98 IDENTIFIER [min,max]=[16,16] TC=-373255664
+e 92 99
+n 99 args [min,max]=[2147483647,-1] TC=-373250304
+e 99 100
+n 100 Attribute [min,max]=[2147483647,-1] TC=-373292873
+e 100 101
+n 101 value [min,max]=[2147483647,-1] TC=1853187592
