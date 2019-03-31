@@ -106,13 +106,18 @@ def getClonePairs(path,minT,strI,simI,disT,fname):
     return clonedict1
 
 
-def scoring(path,mode,clist,clist2,minTokens,stride,similarity,distance,is_sort=True):
+def scoring(path,mode,clist,clist2,minTokens,stride,similarity,distance,res_rate,none_clone_rate,style_rate,is_sort=True,is_score = True):
+    print("""
+----------------------------------------------------------------------------------------------------
+begin scoring ...
+    """)
     scorename = path+'/grading/scores'
     scorefile = open(scorename,'w')
     inlist = readinput(path+'/grading/input')
     outlist = readoutput(path+'/grading/output')
     for filename in os.listdir(path):
         if os.path.splitext(filename)[1]=='.py' and filename != 'temp.py':
+            print('filename: '+ filename)
             outputfile = open(path + '/logs/' + filename.rstrip('.py') + '.txt','w')
             pg_input = 'Input:\n\n'
             pg_output = '----------------------------------------\nOutput of '+filename+':\n\n'
@@ -157,7 +162,10 @@ def scoring(path,mode,clist,clist2,minTokens,stride,similarity,distance,is_sort=
                 noneClone = 0
             valout = valOutput(path,filename)
             pg_score += 'score = ' + str(float('%.2f'%res)) + ' * 0.6 + ' + str(noneClone) + ' * 0.2 + ' + str(float('%.2f'%valout)) + ' * 0.2'
-            res = res *0.6 + noneClone * 0.2 + valout *0.2
+            if is_score:
+                res = res * res_rate + noneClone * none_clone_rate + valout * style_rate
+            else:
+                res = res * res_rate + valout * (1 - res_rate)
             pg_score += ' = '+str(float('%.2f'%res)) + '\n\n'
             scorefile.write(filename+" "+str(float('%.2f'%res))+"\n")
             clone_report = getClonePairs(path,minTokens,stride,similarity,distance,filename)
@@ -172,6 +180,7 @@ def scoring(path,mode,clist,clist2,minTokens,stride,similarity,distance,is_sort=
 
             outputstr = pg_input + pg_output + pg_score + clone_str + genOutStr(path,filename)
             outputfile.write(outputstr)
+            print(filename+' ' + str(float('%.2f'%res)) +' finished.\n' + 'see detains in'+path+'/log/'+ filename+'\n')
 
 def renamefiles(path):
     if not os.path.exists(path + '/logs'):
@@ -201,17 +210,25 @@ def removeTempFiles(path):
 
 if __name__ == "__main__":
     configer = configReader()
+    print('\n'.join(['%s:%s' % item for item in configer.__dict__.items()]))
     mode = configer.mode
     minTokens = configer.minTokens
     stride = configer.stride
     similarity = configer.similarity
     distance = configer.distance
+    is_score = configer.is_score
     is_sort = configer.is_sort
     path = configer.path
+    is_remove = configer.is_remove
+    res_rate = configer.res_rate
+    none_clone_rate = configer.none_clone_rate
+    style_rate = configer.style_rate
+
     renamefiles(path)
     pyAst(path)
     genclone(path,minTokens,stride,similarity,distance)
     clist = getCloneFile(path,minTokens,stride,similarity,distance)
     clist2 = diffComp(path,0.83)
-    scoring(path,mode,clist,clist2,minTokens,stride,similarity,distance,is_sort)
-    removeTempFiles(path + '/')
+    scoring(path,mode,clist,clist2,minTokens,stride,similarity,distance,res_rate,none_clone_rate,style_rate,is_sort,is_score)
+    if is_remove:
+        removeTempFiles(path + '/')

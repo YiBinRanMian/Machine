@@ -9,8 +9,8 @@ def getString(l):
 
 def genclone(qpath,minT,strI,simI,disT):
     print("""
-    ##################################################
-    generating clone report:
+----------------------------------------------------------------------------------------------------
+generating clone report:
     
     """)
     path = sys.path[0]+"/Paprika/scripts/clonedetect"
@@ -127,14 +127,20 @@ def genclone(qpath,minT,strI,simI,disT):
     
     """
     config.write(s)
+    print("""
+    Config file prepared.
+    """)
     os.system("chmod u+x "+path+'/config')
     config.close()
-    devNull = open(os.devnull, 'w')
-    os.chdir(path)
-    subprocess.call('./deckard.sh', stdout=devNull)
-    # os.system('./deckard.sh')
+    # devNull = open(os.devnull, 'w')
     print("""
-    Clone report generating succeed.
-    see detains in ./clusters/post_clusters*
-    
+    Start clone detection...
+    """)
+    os.chdir(path)
+    # subprocess.call('./deckard.sh', stdout=devNull)
+    os.system('./deckard.sh')
+    print("""
+Clone report generating succeed.
+see detains in ./clusters/post_clusters*
+
     """)

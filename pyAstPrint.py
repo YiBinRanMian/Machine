@@ -63,16 +63,19 @@ class Printer(ast.NodeVisitor):
 
 def pyAst(path):
     print("""
-    ##################################################
-    generating python abstract tree:
+----------------------------------------------------------------------------------------------------
+generating python abstract tree:
     """)
     for filename in os.listdir(path):
         if os.path.splitext(filename)[1]=='.py'  and filename != 'temp.py':
+            print("""
+Dumping ast file: """+filename+"""
+            """)
             file = open(path+'/'+filename, "r")
             source = file.read()
             root = ast.parse(source)
             output = open(path+'/'+os.path.splitext(filename)[0] + ".txt", "w")
             output.write("0 " + dump(root))
     print("""
-    Python abstract tree generated success.
+Python abstract tree generated success.
     """)

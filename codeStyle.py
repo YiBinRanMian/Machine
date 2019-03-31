@@ -1,4 +1,6 @@
-import sys,os,re
+import sys
+import os
+import re
 
 operValue = ['&','/','>','<','%','*','-','=','+']
 doubleOperValue = ['==','>=','<=','+=','//','!=']
@@ -93,8 +95,6 @@ def valSpace2(path,fname):
                             if doper[0] == '+':
                                 doper = '\+='
                             if re.search('(?<!\s)'+ doper + '(?=\s)|(?<=\s)' + doper + '(?!\s)|(?<!\s)' + doper + '(?!\s)', line):
-                            # if re.search('(?<!\s)'+ doper + '(?=\s)|(?<=\s)' + doper + '(?!\s)|(?<!\s)' + doper + '(?!\s)', line):
-
                                 return 0
                     if flag == 0:
                         return 0
@@ -136,7 +136,6 @@ def valName(path, fname):
             elif line[2] == 'FunctionDef':
                 if not line[4].strip('\'').islower():
                     return 0
-
     if not fname.islower():
         return 0
     return 1
@@ -156,7 +155,7 @@ def valOutput(path,fname):
 
 def genOutStr(path,fname):
     grade = outputGrade(path,fname)
-    outstr = ['每行超过80个字符\n','不要在行尾加分号, 也不要用分号将两条命令放在同一行\n','不要使用反斜杠连接行\n',
+    outstr = ['每行不超过80个字符\n','不要在行尾加分号, 也不要用分号将两条命令放在同一行\n','不要使用反斜杠连接行\n',
               '除非是用于实现行连接, 否则不要在返回语句或条件语句中使用括号\n','用4个空格来缩进代码,不要使用Tab\n',
               '括号内不要有空格 不要在逗号, 分号, 冒号前面加空格\n',' 在二元操作符两边都要加上一个空格\n',
               '每个导入应该独占一行\n','通常每个语句应该独占一行 如果是if语句, 只有在没有else时才能这样做,特别地, 绝不要对 try/except 这样做\n',
