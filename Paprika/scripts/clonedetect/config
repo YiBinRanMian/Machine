@@ -48,7 +48,7 @@
     # java, c, or php?
     FILE_PATTERN='*.txt' # used for the 'find' command
     # where are the source files?
-    SRC_DIR='/Users/harodfinvh/PycharmProjects/class1/q1'
+    SRC_DIR='/Users/harodfinvh/PycharmProjects/class1/week1/q3/inspection'
     # where is Deckard?
     DECKARD_DIR='/Users/harodfinvh/PycharmProjects/Machine/Paprika'
     # clone parameters; refer to paper.
@@ -61,11 +61,11 @@
     # Where to store result files?
     #
     # where to output generated vectors?
-    VECTOR_DIR='/Users/harodfinvh/PycharmProjects/class1/q1/vectors'
+    VECTOR_DIR='/Users/harodfinvh/PycharmProjects/class1/week1/q3/inspection/vectors'
     # where to output detected clone clusters?
-    CLUSTER_DIR='/Users/harodfinvh/PycharmProjects/class1/q1/clusters'
+    CLUSTER_DIR='/Users/harodfinvh/PycharmProjects/class1/week1/q3/inspection/clusters'
     # where to output timing/debugging info?
-    TIME_DIR='/Users/harodfinvh/PycharmProjects/class1/q1/times'
+    TIME_DIR='/Users/harodfinvh/PycharmProjects/class1/week1/q3/inspection/times'
     
     ##########################################################
     # where are several programs we need?

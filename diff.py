@@ -3,6 +3,7 @@ import sys
 import os
 import re
 
+
 def stripNotes(fname,path):
     note1 = re.compile('#[^\r\n]*')
     note2 = re.compile('.*(""".*?""")')
